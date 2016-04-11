@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-
   root 'products#index'
 
   resources :products
 
   resources :users, only: [:new, :create]
+
+  resources :sessions, only: [:new, :create, :destroy]
 
 
  #  Prefix Verb   URI Pattern                  Controller#Action
