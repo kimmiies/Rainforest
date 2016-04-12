@@ -10,5 +10,21 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-  
+
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please log in"
+      redirect_to new_session_path
+    end
+  end
+
+
+
 end
+
+#IN SESSIONS Controller
+#DEF CREATE
+#we open a new session with the user_id key set to your user.id value
+#@current_user is set when there's session
+#Cant be defined until session Id is create
+#current user is created when
